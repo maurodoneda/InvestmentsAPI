@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Domain;
@@ -24,9 +25,9 @@ namespace Application.Investments
 
             public async Task<List<Investment>> Handle(Query request, CancellationToken cancellationToken)
             {
-                var trades = await _context.Investments.ToListAsync();
+                var investments = await _context.Investments.OrderBy(x => x.Asset).ToListAsync();
 
-                return trades;
+                return investments;
             }
         }
     }

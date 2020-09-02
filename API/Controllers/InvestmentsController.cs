@@ -6,34 +6,52 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using MediatR;
+using Application.Investments;
 
 namespace API.Controllers
 {
-    public class InvestmentsController : Controller
+
+    [Route("api/[controller]")]
+    [ApiController]
+    public class InvestmentsController : ControllerBase
     {
-        private readonly DataContext _context;
-        private InvestmentsController(DataContext context)
+        private readonly IMediator _mediator;
+
+        public InvestmentsController(IMediator mediator)
         {
-            _context = context;
+            _mediator = mediator;
         }
 
-
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Investment>>> Get()
+        public async Task<ActionResult<List<Investment>>> List()
         {
-
-           var investmentList = await _context.Investments.OrderByDescending(x => x.Asset).ToListAsync(); 
-
-            return Ok(investmentList);
-        } 
+            return await _mediator.Send(new List.Query());
+        }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Investment>> Get(int id)
+        public async Task<ActionResult<Investment>> Details(int id)
         {
+           return await _mediator.Send(new Details.Query{Id = id});
+        }
 
-           var investment = await _context.Investments.FindAsync(id); 
+        [HttpPost]
+        public async Task<ActionResult<Unit>> Create(Create.Command command)
+        {
+            return await _mediator.Send(command);
+        }
 
-            return Ok(investment);
-        } 
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Unit>> Update(Update.Command command, int id)
+        {
+            command.Id = id;
+            return await _mediator.Send(command);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Unit>> Delete(int id)
+        {
+            return await _mediator.Send(new Delete.Command{Id = id});
+        }
     }
 }

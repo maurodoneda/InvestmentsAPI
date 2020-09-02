@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Domain\\Domain.csproj": {}
+    "C:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Domain\\Domain.csproj": {
+    "C:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "c:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Mauro\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mauro\\AppData\\Roaming\\NuGet\\NuGet.Config",
