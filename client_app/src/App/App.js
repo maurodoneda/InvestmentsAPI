@@ -1,34 +1,43 @@
-import React, {Component} from "react";
+import React, { useState } from "react";
 import "./App.css";
-import Welcome from "./Welcome";
-import styled, {css} from 'styled-components';
-import AppLayout from "./AppLayout";
-import AppBar from "./AppBar";
-import { AppProvider } from "./AppProvider";
+import NavBar from "./components/NavBar";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { Switch } from "@material-ui/core";
+import SideDrawer from "./components/SideDrawer";
+import { purple } from "@material-ui/core/colors";
 
-const MyButton = styled.div`
-    color: green;
-      
-    ${props => props.primary && css`
-        color: palevioletred;
-      `}
-`
+function App({ theme }) {
+  const [darkMode, setDarkMode] = useState(true);
 
-function App(){
- 
-    return (
-      <div>
-      <AppLayout>
-        <AppProvider>
-          <AppBar/>
-          <Welcome/>
-        </AppProvider>
-      </AppLayout>
-      <MyButton>Hello</MyButton>
-      <MyButton primary>Hello</MyButton>
-      </div>
+  theme = createMuiTheme({
+    palette: {
+      type: darkMode ? "light" : "dark",
+
+      primary: {
+        main: "#283593",
+        contrastText: "#fff",
+        light: '#000',
+        dark: '#002884',
+      },
+      secondary: {
+        main: '#aeea00',
+        contrastText: '#000',
+        light: '#ff7961',
+        dark: '#ba000d',
+      },
+    },
+   
+
+  });
+
+  return (
+    <div>
+      <ThemeProvider theme={theme}>
+        <NavBar position="fixed" theme={theme} setDarkMode={setDarkMode} darkMode={darkMode}/>
+        <SideDrawer />
+      </ThemeProvider>
+    </div>
   );
 }
-
 
 export default App;

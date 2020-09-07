@@ -1,5 +1,7 @@
 body{
+  margin: 0;
+  padding: 0;
   background-color: #010e2c;
   color: white;
-  font-family: 'Do Hyeon', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
