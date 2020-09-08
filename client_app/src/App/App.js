@@ -58,6 +58,7 @@ function App() {
             darkMode={darkMode}
             investments={investments}
             keyNames = {keyNames}
+            theme={theme}
           />
       </ThemeProvider>
     </div>

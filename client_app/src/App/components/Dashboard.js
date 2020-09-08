@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme)=>({
 
 }));
 
-export default function Dashboard({ darkMode, keyNames, investments }) {
+export default function Dashboard({ darkMode, keyNames, investments, theme }) {
   const classes = useStyles();
   const [toggle, setToggle] = useState(false);
 
@@ -43,7 +43,7 @@ export default function Dashboard({ darkMode, keyNames, investments }) {
         </Grid>
 
         <Grid className={classes.gridItem} item xs={6}>
-        <EvolutionChart/>
+        <EvolutionChart theme={theme} darkMode ={darkMode}/>
         </Grid>
 
         <Grid className={classes.gridItem} item xs={5}>
