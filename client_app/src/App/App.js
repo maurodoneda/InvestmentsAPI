@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import "./App.css";
 import NavBar from "./components/NavBar";
+import Dashboard from "./components/Dashboard";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import { Switch } from "@material-ui/core";
+import { Switch, List, Typography } from "@material-ui/core";
 import SideDrawer from "./components/SideDrawer";
 import { purple } from "@material-ui/core/colors";
 
-function App({ theme }) {
-  const [darkMode, setDarkMode] = useState(true);
+function App() {
+  const [darkMode, setDarkMode] = useState(false);
 
-  theme = createMuiTheme({
+  const theme = createMuiTheme({
     palette: {
       type: darkMode ? "light" : "dark",
 
@@ -32,10 +32,11 @@ function App({ theme }) {
 
   return (
     <div>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme} >
         <NavBar position="fixed" theme={theme} setDarkMode={setDarkMode} darkMode={darkMode}/>
         <SideDrawer />
-      </ThemeProvider>
+          <Dashboard darkMode={darkMode}/>
+        </ThemeProvider>
     </div>
   );
 }
