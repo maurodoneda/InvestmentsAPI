@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SideDrawer({hide,setHide}) {
+export default function SideDrawer({toggle,setToggle}) {
   const classes = useStyles();
   
 
@@ -53,9 +53,13 @@ export default function SideDrawer({hide,setHide}) {
         <Divider />
           <List>
          
-              <ListItem button key={'table'} onClick={()=> setHide(!hide)} >
+              <ListItem button key={'table'} onClick={()=> setToggle(!toggle)} >
                 <ListItemIcon><InboxIcon /></ListItemIcon>
                 <ListItemText primary={'Investments Table'}  />
+              </ListItem>
+              <ListItem button key={'table'} onClick={()=> setToggle(!toggle)} >
+                <ListItemIcon><InboxIcon /></ListItemIcon>
+                <ListItemText primary={'Open Positions'}  />
               </ListItem>
 
           </List>

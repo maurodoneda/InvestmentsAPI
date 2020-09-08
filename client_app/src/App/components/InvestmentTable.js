@@ -44,7 +44,7 @@ const useStyles = makeStyles({
 
   content: {
     flexGrow: 1,
-    height: "100vh",
+    height: "50vh",
     overflow: "auto",
     marginTop: 2,
   },
