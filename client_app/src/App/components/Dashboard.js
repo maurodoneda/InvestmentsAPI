@@ -1,31 +1,32 @@
-import React from 'react';
-import InvestmentList from './InvestmentList';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import React, {useState} from "react";
+import InvestmentTable from "./InvestmentTable";
+import { makeStyles } from "@material-ui/core/styles";
+import SideDrawer from "./SideDrawer";
 
 const useStyles = makeStyles({
   content: {
     flexGrow: 1,
-    height: '100vh',
-    overflow: 'auto',
-    marginLeft: '250px'
+    height: "100vh",
+    overflow: "auto",
+    marginLeft: 245,
   },
-
 });
 
-export default function Dashboard({darkMode}) {
+export default function Dashboard({ darkMode, keyNames, investments }) {
   const classes = useStyles();
+  const [hide, setHide]= useState(false);
+
 
   return (
-    <div className = {classes.content}>
-      <InvestmentList darkMode={darkMode}/>
+    <div className={classes.content}>
+      <SideDrawer setHide={setHide} hide={hide}/>
+      {hide ? (
+        <InvestmentTable
+          darkMode={darkMode}
+          keyNames={keyNames}
+          investments={investments}
+        />
+      ) : null}
     </div>
-
   );
 }

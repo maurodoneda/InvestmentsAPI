@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -31,8 +31,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SideDrawer() {
+export default function SideDrawer({hide,setHide}) {
   const classes = useStyles();
+  
+
+  
 
   return (
     <div className={classes.root}>
@@ -49,12 +52,12 @@ export default function SideDrawer() {
         
         <Divider />
           <List>
-            {['My Portfolio', 'Performance', 'List All', 'Markets'].map((text, index) => (
-              <ListItem button key={text}>
+         
+              <ListItem button key={'table'} onClick={()=> setHide(!hide)} >
                 <ListItemIcon><InboxIcon /></ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={'Investments Table'}  />
               </ListItem>
-            ))}
+
           </List>
           <Divider />
         </div>

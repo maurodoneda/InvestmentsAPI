@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace Domain
 {
@@ -13,6 +14,7 @@ namespace Domain
         public int Quantity { get; set; }
         public decimal Price { get; set; }
         public decimal LiquidationCosts { get; set; }
+        [DisplayName("Registry Cost")]
         public decimal RegistryCost { get; set; }
         public decimal EmolumentsCost { get; set; }
         public decimal CapitalGainTax { get; set; }

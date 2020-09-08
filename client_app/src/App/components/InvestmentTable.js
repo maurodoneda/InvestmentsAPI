@@ -14,6 +14,7 @@ const StyledTableCell = withStyles((theme) => ({
   body: {
     fontSize: 14,
   },
+
 }))(TableCell);
 
 const StyledTableRow = withStyles((theme) => ({
@@ -45,43 +46,37 @@ const useStyles = makeStyles({
     flexGrow: 1,
     height: "100vh",
     overflow: "auto",
+    marginTop: 2,
   },
+
+  collumn: {
+    minWidth: 120,
+  }
 });
 
-const InvestmentList = () => {
+const InvestmentTable = ({investments, keyNames}) => {
   const classes = useStyles();
-
-  const [investments, setInvestments] = useState([]);
-
-  useEffect(() => {
-    axios.get("http://localhost:5000/api/investments").then((response) => {
-      console.log(response.data);
-      setInvestments(response.data);
-    });
-  }, []);
-
- let obj = investments[0];
-console.log(obj)
 
   return (
     <TableContainer component={Paper} className={classes.content}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
-            {investments.map((value) => (
-              <StyledTableCell align="center">{value.asset}</StyledTableCell>
+            {keyNames.map((name) => (
+              <StyledTableCell key={name} align="center" className={classes.collumn}>
+                {name.toUpperCase()}
+              </StyledTableCell>
             ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {investments.map((investment) => (
             <StyledTableRow key={investment.id}>
-              <StyledTableCell component="th" scope="row">
-                {investment.asset}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                {investment.price}
-              </StyledTableCell>
+              {Object.values(investment).map((value) => (
+                <StyledTableCell align='center'>
+                  {value}
+                </StyledTableCell>
+              ))}
             </StyledTableRow>
           ))}
         </TableBody>
@@ -90,4 +85,4 @@ console.log(obj)
   );
 };
 
-export default InvestmentList;
+export default InvestmentTable;
