@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  box: {
-    fontColor: "white",
+  title: {
+    display:"flex",
+    justifyContent: 'center',
   },
 }));
 
@@ -21,7 +22,7 @@ const EvolutionChart = ({ theme, darkMode }) => {
         {
           label: "Monthly return - %",
           data: ["10", "8", "-12", "20", "11", "10", "2", "5"],
-          backgroundColor: ["rgba(75,192,192,0.8)"],
+          backgroundColor: "rgba(75,192,192,0.8)",
           borderWidth: 2,
           pointBackgroundColor: 'yellow'
         },
@@ -36,21 +37,18 @@ const EvolutionChart = ({ theme, darkMode }) => {
   return (
     <div>
       <Paper>
-        <Line
-          className={classes.box}
+        <h2 className={classes.title}>Portfolio Return - 2020</h2>
+        <Bar
+          
           data={chartData}
-          height={500}
+          height={400}
+          width={400}
           options={{
-            responsive: true,
-            maintainAspectRatio: false,
+            responsive: false,
+            maintainAspectRatio: true,
             height: 500,
-            title: {
-              text: "Portfolio Return - 2020",
-              display: true,
-              fontColor: "white",
-            },
             legend: {
-              display: true,
+              display: false,
               labels: {
                 fontColor: "white",
               },
@@ -65,6 +63,9 @@ const EvolutionChart = ({ theme, darkMode }) => {
                     autoSkip: true,
                     maxTicksLimit: 10,
                     beginAtZero: true,
+                    callback: function(value) {
+                      return  value + '%';
+                  }
                   },
                   gridLines: {
                     display: false,

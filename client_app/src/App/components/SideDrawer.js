@@ -11,7 +11,11 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
+import TimelineIcon from '@material-ui/icons/Timeline';
+import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
+import PieChartIcon from '@material-ui/icons/PieChart';
 
 const drawerWidth = 240;
 
@@ -54,12 +58,24 @@ export default function SideDrawer({toggle,setToggle}) {
           <List>
          
               <ListItem button key={'table'} onClick={()=> setToggle(!toggle)} >
-                <ListItemIcon><InboxIcon /></ListItemIcon>
+                <ListItemIcon><FormatListBulletedIcon /></ListItemIcon>
                 <ListItemText primary={'Investments Table'}  />
               </ListItem>
               <ListItem button key={'table'} onClick={()=> setToggle(!toggle)} >
-                <ListItemIcon><InboxIcon /></ListItemIcon>
+                <ListItemIcon><AccountBalanceIcon /></ListItemIcon>
                 <ListItemText primary={'Open Positions'}  />
+              </ListItem>
+              <ListItem button key={'table'} onClick={()=> setToggle(!toggle)} >
+                <ListItemIcon><MonetizationOnIcon /></ListItemIcon>
+                <ListItemText primary={'Total Return'}  />
+              </ListItem>
+              <ListItem button key={'table'} onClick={()=> setToggle(!toggle)} >
+                <ListItemIcon><TimelineIcon /></ListItemIcon>
+                <ListItemText primary={'Performance'}  />
+              </ListItem>
+              <ListItem button key={'table'} onClick={()=> setToggle(!toggle)} >
+                <ListItemIcon><PieChartIcon /></ListItemIcon>
+                <ListItemText primary={'Portfolio'}  />
               </ListItem>
 
           </List>

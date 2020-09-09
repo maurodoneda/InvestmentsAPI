@@ -37,16 +37,25 @@ export default function Dashboard({ darkMode, keyNames, investments, theme }) {
     <div className={classes.content}>
       <SideDrawer setToggle={setToggle} toggle={toggle} />
       <Grid container spacing={2}>
+      <Grid className={classes.gridItem} item xs={12}>
+        {toggle ? (
+          <InvestmentTable
+            darkMode={darkMode}
+            keyNames={keyNames}
+            investments={investments}
+          />
+        ) : null}
+        </Grid>
        
       <Grid className={classes.gridItem} item xs={4}>
         <DoughnutChart/>
         </Grid>
 
-        <Grid className={classes.gridItem} item xs={6}>
+        <Grid className={classes.gridItem} item>
         <EvolutionChart theme={theme} darkMode ={darkMode}/>
         </Grid>
 
-        <Grid className={classes.gridItem} item xs={5}>
+        <Grid className={classes.gridItem} item>
         <OpenPositions
           darkMode={darkMode}
           keyNames={keyNames}
@@ -62,15 +71,7 @@ export default function Dashboard({ darkMode, keyNames, investments, theme }) {
         />
         </Grid>
 
-        <Grid className={classes.gridItem} item xs={12}>
-        {toggle ? (
-          <InvestmentTable
-            darkMode={darkMode}
-            keyNames={keyNames}
-            investments={investments}
-          />
-        ) : null}
-        </Grid>
+       
       </Grid>
     </div>
   );

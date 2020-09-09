@@ -16,76 +16,97 @@ const useStyles = makeStyles({
   },
 });
 
-function ccyFormat(num) {
-  return `${num.toFixed(2)}`;
+
+var formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'BRL',
+});
+
+
+function createRow(asset, qty, initialPrice, currentPrice) {
+  const totalInvested = qty*initialPrice;
+  const pnl = (currentPrice - initialPrice)*qty;
+  const percent = (pnl/totalInvested)*100;
+  return { asset, qty, initialPrice, currentPrice, totalInvested, pnl, percent};
 }
 
-function priceRow(qty, unit) {
-  return qty * unit;
-}
 
-function createRow(desc, qty, unit) {
-  const price = priceRow(qty, unit);
-  return { desc, qty, unit, price };
-}
-
-function subtotal(items) {
-  return items.map(({ price }) => price).reduce((sum, i) => sum + i, 0);
-}
 
 const rows = [
-  createRow('Paperclips (Box)', 100, 1.15),
-  createRow('Paper (Case)', 10, 45.99),
-  createRow('Waste Basket', 2, 17.99),
+  createRow('PETR4', 500, 11.15, 22.70),
+  createRow('WEGE3', 700, 35.75, 64.82),
+  createRow('EZTC3', 1000, 29.70, 40.50),
 ];
 
-const invoiceSubtotal = subtotal(rows);
-const invoiceTaxes = TAX_RATE * invoiceSubtotal;
-const invoiceTotal = invoiceTaxes + invoiceSubtotal;
+function subtotal(items) {
+  return items.map(({ pnl }) => pnl).reduce((sum, i) => sum + i, 0);
+}
 
-export default function OpenPositions() {
+const totalProfit = subtotal(rows);
+const taxes = TAX_RATE * totalProfit;
+const netProfit = totalProfit - taxes;
+
+let positions= [{}];
+
+export default function OpenPositions({investments}) {
   const classes = useStyles();
 
+  for (let i = 0; i < investments.length; i++) {
+      if (!positions.includes(investments[i].asset)) {
+          positions.push(investments[i].asset);
+      }
+  }
+
+  
+ console.log(positions);
+  
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="spanning table">
         <TableHead>
           <TableRow>
-            <TableCell align="center" colSpan={3}>
-              Details
+            <TableCell align="center" colSpan={7}>
+              <h2>Open Positions</h2>
             </TableCell>
-            <TableCell align="right">Price</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell>Desc</TableCell>
+            <TableCell>Asset</TableCell>
             <TableCell align="right">Qty.</TableCell>
-            <TableCell align="right">Unit</TableCell>
-            <TableCell align="right">Sum</TableCell>
+            <TableCell align="right">Initial Price</TableCell>
+            <TableCell align="right">Current Price</TableCell>
+            <TableCell align="right">Total Invested</TableCell>
+            <TableCell align="right">P / L</TableCell>
+            <TableCell align="right">Return</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <TableRow key={row.desc}>
-              <TableCell>{row.desc}</TableCell>
+            <TableRow key={row.asset}>
+              <TableCell>{row.asset}</TableCell>
               <TableCell align="right">{row.qty}</TableCell>
-              <TableCell align="right">{row.unit}</TableCell>
-              <TableCell align="right">{ccyFormat(row.price)}</TableCell>
+              <TableCell align="right">{row.initialPrice}</TableCell>
+              <TableCell align="right">{row.currentPrice}</TableCell>
+              <TableCell align="right">{formatter.format(row.totalInvested)}</TableCell>
+              <TableCell align="right">{formatter.format(row.pnl)}</TableCell>
+              <TableCell align="right">{row.percent.toFixed(2)+' %'}</TableCell>
             </TableRow>
           ))}
 
           <TableRow>
             <TableCell rowSpan={3} />
-            <TableCell colSpan={2}>Subtotal</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceSubtotal)}</TableCell>
+            <TableCell rowSpan={3} />
+            <TableCell rowSpan={3} />
+            <TableCell colSpan={2}>Total Profit</TableCell>
+            <TableCell align="right">{formatter.format(totalProfit)}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>Tax</TableCell>
             <TableCell align="right">{`${(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell>
+            <TableCell align="right">{formatter.format(taxes)}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell colSpan={2}>Total</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceTotal)}</TableCell>
+            <TableCell align="right">{formatter.format(netProfit)}</TableCell>
           </TableRow>
         </TableBody>
       </Table>
