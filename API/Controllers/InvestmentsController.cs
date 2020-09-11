@@ -29,6 +29,12 @@ namespace API.Controllers
             return await _mediator.Send(new List.Query());
         }
 
+        [HttpGet("{list}")]
+        public async Task<ActionResult<List<Investment>>> CurrentOpenPos()
+        {
+            return await _mediator.Send(new CurrentOpenPos.Query());
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Investment>> Details(int id)
         {

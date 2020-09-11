@@ -8,6 +8,14 @@ const useStyles = makeStyles((theme) => ({
     display:"flex",
     justifyContent: 'center',
   },
+
+  box: {
+    position:'relative',
+    top: '-15px',
+    minWidth: 400
+  },
+
+
 }));
 
 const EvolutionChart = ({ theme, darkMode }) => {
@@ -36,12 +44,12 @@ const EvolutionChart = ({ theme, darkMode }) => {
 
   return (
     <div>
-      <Paper>
+      <Paper  className={classes.box}>
         <h2 className={classes.title}>Portfolio Return - 2020</h2>
         <Bar
-          
+         
           data={chartData}
-          height={400}
+          height={460}
           width={400}
           options={{
             responsive: false,

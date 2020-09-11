@@ -25,9 +25,10 @@ namespace Application.Investments
 
             public async Task<List<Investment>> Handle(Query request, CancellationToken cancellationToken)
             {
-                var investments = await _context.Investments.OrderBy(x => x.Asset).ToListAsync();
+                var list = await _context.Investments.OrderBy(x => x.Id).ToListAsync();
 
-                return investments;
+           
+                return list;
             }
         }
     }

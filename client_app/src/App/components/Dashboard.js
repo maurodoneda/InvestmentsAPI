@@ -25,7 +25,12 @@ const useStyles = makeStyles((theme)=>({
 
   gridItem:{
     minWidth: 300
-  }
+  },
+
+  evolutionChart:{
+    minWidth: 420
+
+  },
 
 }));
 
@@ -37,7 +42,23 @@ export default function Dashboard({ darkMode, keyNames, investments, theme }) {
     <div className={classes.content}>
       <SideDrawer setToggle={setToggle} toggle={toggle} />
       <Grid container spacing={2}>
-      <Grid className={classes.gridItem} item xs={12}>
+      
+      <Grid className={classes.gridItem} item xs={3}>
+        <DoughnutChart/>
+        </Grid>
+
+        <Grid className={classes.evolutionChart} item item xs={3}>
+        <EvolutionChart theme={theme} darkMode ={darkMode}/>
+        </Grid>
+
+        <Grid className={classes.gridItem} item xs={5}>
+        <OpenPositions
+          darkMode={darkMode}
+          keyNames={keyNames}
+          investments={investments}
+        />
+        </Grid>
+        <Grid className={classes.gridItem} item xs={11}>
         {toggle ? (
           <InvestmentTable
             darkMode={darkMode}
@@ -47,21 +68,6 @@ export default function Dashboard({ darkMode, keyNames, investments, theme }) {
         ) : null}
         </Grid>
        
-      <Grid className={classes.gridItem} item xs={4}>
-        <DoughnutChart/>
-        </Grid>
-
-        <Grid className={classes.gridItem} item>
-        <EvolutionChart theme={theme} darkMode ={darkMode}/>
-        </Grid>
-
-        <Grid className={classes.gridItem} item>
-        <OpenPositions
-          darkMode={darkMode}
-          keyNames={keyNames}
-          investments={investments}
-        />
-        </Grid>
 
         <Grid className={classes.gridItem} item xs={7}>
         <OpenPositions

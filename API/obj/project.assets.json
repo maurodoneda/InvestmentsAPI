@@ -1259,11 +1259,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mauro\\OneDrive\\repos\\myinvestments\\api\\API.csproj",
+      "projectUniqueName": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\api\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\Mauro\\OneDrive\\repos\\myinvestments\\api\\API.csproj",
+      "projectPath": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\api\\API.csproj",
       "packagesPath": "C:\\Users\\Mauro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mauro\\OneDrive\\repos\\myinvestments\\api\\obj\\",
+      "outputPath": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Mauro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1279,8 +1279,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Mauro\\OneDrive\\repos\\myinvestments\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\Mauro\\OneDrive\\repos\\myinvestments\\Application\\Application.csproj"
+            "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Application\\Application.csproj"
             }
           }
         }
