@@ -61,19 +61,19 @@ export default function SideDrawer({toggle,setToggle}) {
                 <ListItemIcon><FormatListBulletedIcon /></ListItemIcon>
                 <ListItemText primary={'Investments Table'}  />
               </ListItem>
-              <ListItem button key={'table'} onClick={()=> setToggle(!toggle)} >
+              <ListItem button>
                 <ListItemIcon><AccountBalanceIcon /></ListItemIcon>
                 <ListItemText primary={'Open Positions'}  />
               </ListItem>
-              <ListItem button key={'table'} onClick={()=> setToggle(!toggle)} >
+              <ListItem button>
                 <ListItemIcon><MonetizationOnIcon /></ListItemIcon>
                 <ListItemText primary={'Total Return'}  />
               </ListItem>
-              <ListItem button key={'table'} onClick={()=> setToggle(!toggle)} >
+              <ListItem button>
                 <ListItemIcon><TimelineIcon /></ListItemIcon>
                 <ListItemText primary={'Performance'}  />
               </ListItem>
-              <ListItem button key={'table'} onClick={()=> setToggle(!toggle)} >
+              <ListItem button>
                 <ListItemIcon><PieChartIcon /></ListItemIcon>
                 <ListItemText primary={'Portfolio'}  />
               </ListItem>

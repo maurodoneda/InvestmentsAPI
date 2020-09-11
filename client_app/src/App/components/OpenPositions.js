@@ -70,6 +70,7 @@ const addOrSubtractQnty = (type, quantity) => {
 
 
 let assetList = [];
+let openPositions =[];
 
 
 export default function OpenPositions({ investments }) {
@@ -83,13 +84,26 @@ export default function OpenPositions({ investments }) {
         assetList.push(
           investment.asset,
         );
-        let newRow = createRow(investment.asset, investment.quantity, investment.price, 50*Math.random());
-        rows.push(newRow);
       }       
 })
 
+
+// for(let i =0; i< assetList.length; i++){
+
+//     for(let j =0; j<investments.length;j++){
+//         if(investments[j].asset.toUpperCase() != assetList[i].toUpperCase()){
+//           openPositions.push(investments[j]);
+//         }
+        
+//       }
+      
+      // openPositions[i].quantity += investments[i].quantity;
+      // openPositions[i].price = investments[i].quantity*investments[i].price/openPositions[i].quantity;
+//}
+
+
 console.log(assetList);
-console.log(rows);
+console.log(openPositions);
 
 
  // loop trough positions array, match with investment table asset, and sum the quantity and the avg price.
