@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme)=>({
 
 }));
 
-export default function Dashboard({ darkMode, keyNames, investments, theme }) {
+export default function Dashboard({ darkMode, keyNames, investments, theme, openPositions }) {
   const classes = useStyles();
   const [toggle, setToggle] = useState(false);
 
@@ -74,6 +74,7 @@ export default function Dashboard({ darkMode, keyNames, investments, theme }) {
           darkMode={darkMode}
           keyNames={keyNames}
           investments={investments}
+          openPositions = {openPositions}
         />
         </Grid>
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -7,6 +7,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import axios from "axios";
 
 const TAX_RATE = 0.15;
 
@@ -21,111 +22,24 @@ var formatter = new Intl.NumberFormat("en-US", {
   currency: "BRL",
 });
 
-function createRow(asset, qty, initialPrice, currentPrice) {
-  const totalInvested = qty * initialPrice;
-  const pnl = (currentPrice - initialPrice) * qty;
-  const percent = (pnl / totalInvested) * 100;
-  return {
-    asset,
-    qty,
-    initialPrice,
-    currentPrice,
-    totalInvested,
-    pnl,
-    percent,
-  };
-}
 
 
 
-let rows = [
-  createRow("PETR4", 500, 11.15, 22.7),
-  createRow("WEGE3", 700, 35.75, 64.82),
-  createRow("EZTC3", 1000, 29.7, 40.5),
-];
-
-function subtotal(items) {
-  return items.map(({ pnl }) => pnl).reduce((sum, i) => sum + i, 0);
-}
-
-// function updatedRow(row) {
-//   return {
-//     row.asset,
-//   };
-// }
-
-const totalProfit = subtotal(rows);
-const taxes = TAX_RATE * totalProfit;
-const netProfit = totalProfit - taxes;
-
-const totalCost = (registry, emoluments, liquidation, capitalGain) => {
-  return registry + emoluments + liquidation + capitalGain;
-};
-
-const addOrSubtractQnty = (type, quantity) => {
-  return type.toUpperCase() === "BUY" ? +quantity : -quantity;
-};
-
-
-
-
-let assetList = [];
-let openPositions =[];
-
-
-export default function OpenPositions({ investments }) {
-  const classes = useStyles();
-
-  // Populate positions Array
-
-  investments.map((investment) => {
-      if(!assetList.includes(investment.asset))
-      {
-        assetList.push(
-          investment.asset,
-        );
-      }       
-})
-
-
-// for(let i =0; i< assetList.length; i++){
-
-//     for(let j =0; j<investments.length;j++){
-//         if(investments[j].asset.toUpperCase() != assetList[i].toUpperCase()){
-//           openPositions.push(investments[j]);
-//         }
-        
-//       }
-      
-      // openPositions[i].quantity += investments[i].quantity;
-      // openPositions[i].price = investments[i].quantity*investments[i].price/openPositions[i].quantity;
-//}
-
-
-console.log(assetList);
-console.log(openPositions);
-
-
- // loop trough positions array, match with investment table asset, and sum the quantity and the avg price.
-
-
-  // investments.map((investment, i) => {
-        
-  //   assetList.map((asset)=>{
-  //     if(investment.asset !== asset)
-  //     {
-  //       openPositions.push({
-  //         asset: investment.asset,
-  //         quantity: investment.quantity = addOrSubtractQnty(investment.operationType,investment.quantity),
-  //         price: investment.price 
-  //       });
-  //     }
-  //   })
-  // });
+let positionRows = [];
+  function subtotal(items) {
+    return items.map(({ pnl }) => pnl).reduce((sum, i) => sum + i, 0);
+  }
+  
+  const totalProfit = subtotal(positionRows);
+  const taxes = TAX_RATE * totalProfit;
+  const netProfit = totalProfit - taxes;
 
   
-  // console.log(openPositions);
-  // console.log(investments);
+
+export default function OpenPositions({openPositions}) {
+  const classes = useStyles();
+  
+ 
 
   return (
     <TableContainer component={Paper}>
@@ -147,18 +61,20 @@ console.log(openPositions);
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.asset}>
-              <TableCell>{row.asset}</TableCell>
-              <TableCell align="right">{row.qty}</TableCell>
-              <TableCell align="right">{row.initialPrice}</TableCell>
-              <TableCell align="right">{formatter.format(row.currentPrice)}</TableCell>
+          {openPositions.map((position) => (
+            <TableRow key={position.asset}>
+              <TableCell>{position.asset}</TableCell>
+              <TableCell align="right">{position.qty}</TableCell>
+              <TableCell align="right">{position.initialPrice}</TableCell>
               <TableCell align="right">
-                {formatter.format(row.totalInvested)}
+                {formatter.format(position.currentPrice)}
               </TableCell>
-              <TableCell align="right">{formatter.format(row.pnl)}</TableCell>
               <TableCell align="right">
-                {row.percent.toFixed(2) + " %"}
+                {formatter.format(position.totalInvested)}
+              </TableCell>
+              <TableCell align="right">{formatter.format(position.pnl)}</TableCell>
+              <TableCell align="right">
+                {position.percent.toFixed(2) + " %"}
               </TableCell>
             </TableRow>
           ))}
