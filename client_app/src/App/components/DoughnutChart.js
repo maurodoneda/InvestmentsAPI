@@ -1,46 +1,77 @@
-import * as React from 'react';
-import Paper from '@material-ui/core/Paper';
-import {
-  Chart,
-  PieSeries,
-  Title,
-} from '@devexpress/dx-react-chart-material-ui';
+import React, { useState, useEffect } from "react";
+import { Bar, Doughnut } from "react-chartjs-2";
+import { Paper } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
-import { Animation } from '@devexpress/dx-react-chart';
+const useStyles = makeStyles((theme) => ({
+  title: {
+    display:"flex",
+    justifyContent: 'center',
+  },
+
+  box: {
+    position:'relative',
+    top: '-15px',
+    minWidth: 400
+  },
 
 
-export const DoughnutChart = () => {
-    
-    const data = [
-        { region: 'Asia', val: 4119626293 },
-        { region: 'Africa', val: 1012956064 },
-        { region: 'Northern America', val: 344124520 },
-        { region: 'Latin America and the Caribbean', val: 590946440 },
-        { region: 'Europe', val: 727082222 },
-        { region: 'Oceania', val: 35104756 },
-      ];
-      
+}));
 
-    return (
-        <div>
-             <Paper>
-        <Chart
-          data={data}
-        >
-          <PieSeries
-            valueField="val"
-            argumentField="region"
-            innerRadius={0.6}
-          />
-          <Title
-            text="Current Portfolio"
-          />
-          <Animation />
-        </Chart>
+const DoughnutChart = ({ theme, darkMode }) => {
+  const classes = useStyles();
+
+  const [chartData, setChartData] = useState({});
+
+  const chart = () => {
+    setChartData({
+      datasets: [{
+        data: [15, 20, 30],
+        backgroundColor: ["#36A2EB","#FFCD56","#FF6384"]
+    }],
+
+    // These labels appear in the legend and in the tooltips when hovering different arcs
+    labels: [
+        'Blue',
+        'Yellow',
+        'Red'
+    ]
+    });
+  };
+
+  useEffect(() => {
+    chart();
+  }, []);
+
+  return (
+    <div>
+      <Paper  className={classes.box}>
+        <h2 className={classes.title}>Portfolio</h2>
+        <Doughnut
+         
+          data={chartData}
+          height={460}
+          width={400}
+          options={{
+            responsive: false,
+            maintainAspectRatio: true,
+            legend: {
+              display: true,
+              labels: {
+                fontColor: "black",
+              },
+              align: "center",
+              position: "bottom",
+            },
+
+            cutoutPercentage: 60,
+
+
+          }}
+        />
       </Paper>
-            
-        </div>
-    )
-}
+    </div>
+  );
+};
 
-export default DoughnutChart
+export default DoughnutChart;

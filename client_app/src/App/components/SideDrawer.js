@@ -54,10 +54,7 @@ export default function SideDrawer({toggle,setToggle}) {
         <Divider />
           <List>
          
-              <ListItem button key={'table'} onClick={()=> setToggle(!toggle)} >
-                <ListItemIcon><FormatListBulletedIcon /></ListItemIcon>
-                <ListItemText primary={'Investments Table'}  />
-              </ListItem>
+         
               <ListItem button>
                 <ListItemIcon><AccountBalanceIcon /></ListItemIcon>
                 <ListItemText primary={'Open Positions'}  />
@@ -73,6 +70,10 @@ export default function SideDrawer({toggle,setToggle}) {
               <ListItem button>
                 <ListItemIcon><PieChartIcon /></ListItemIcon>
                 <ListItemText primary={'Portfolio'}  />
+              </ListItem>
+              <ListItem button key={'table'} onClick={()=> setToggle(!toggle)} >
+                <ListItemIcon><FormatListBulletedIcon /></ListItemIcon>
+                <ListItemText primary={'Investments Table'}  />
               </ListItem>
 
           </List>

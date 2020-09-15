@@ -7,13 +7,13 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import axios from "axios";
+
 
 const TAX_RATE = 0.15;
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 500,
+    minWidth: 700,
   },
 });
 
@@ -25,14 +25,12 @@ var formatter = new Intl.NumberFormat("en-US", {
 
 
 
-let positionRows = [];
+
   function subtotal(items) {
-    return items.map(({ pnl }) => pnl).reduce((sum, i) => sum + i, 0);
+    return items.map(({ profit }) => profit).reduce((sum, i) => sum + i, 0);
   }
   
-  const totalProfit = subtotal(positionRows);
-  const taxes = TAX_RATE * totalProfit;
-  const netProfit = totalProfit - taxes;
+  
 
   
 
@@ -40,6 +38,18 @@ export default function OpenPositions({openPositions}) {
   const classes = useStyles();
   
  
+  const totalProfit = subtotal(openPositions);
+  const taxes = TAX_RATE * totalProfit;
+  const netProfit = totalProfit - taxes;
+
+
+
+
+
+
+
+
+
 
   return (
     <TableContainer component={Paper}>
@@ -65,14 +75,14 @@ export default function OpenPositions({openPositions}) {
             <TableRow key={position.asset}>
               <TableCell>{position.asset}</TableCell>
               <TableCell align="right">{position.qty}</TableCell>
-              <TableCell align="right">{position.initialPrice}</TableCell>
+              <TableCell align="right">{formatter.format(position.avgPrice)}</TableCell>
               <TableCell align="right">
                 {formatter.format(position.currentPrice)}
               </TableCell>
               <TableCell align="right">
                 {formatter.format(position.totalInvested)}
               </TableCell>
-              <TableCell align="right">{formatter.format(position.pnl)}</TableCell>
+              <TableCell align="right">{formatter.format(position.profit)}</TableCell>
               <TableCell align="right">
                 {position.percent.toFixed(2) + " %"}
               </TableCell>

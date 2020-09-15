@@ -26,6 +26,21 @@ function App() {
     },
   });
 
+  function createRow(asset, qty, avgPrice, currentPrice) {
+    const totalInvested = qty * avgPrice;
+    const profit = (currentPrice - avgPrice) * qty;
+    const percent = (profit / totalInvested) * 100;
+    return {
+      asset,
+      qty,
+      avgPrice,
+      currentPrice,
+      totalInvested,
+      profit,
+      percent,
+    };
+  }
+
   const [investments, setInvestments] = useState([]);
   const [keyNames, setKeyNames] = useState([]);
   const [openPositions, setOpenPositions] = useState([]);
@@ -33,7 +48,6 @@ function App() {
 
   useEffect(() => {
     axios.get("http://localhost:5000/api/investments").then((response) => {
-      console.log(response.data);
       let investments = [];
       response.data.forEach((investment) => {
         investment.date = investment.date.split("T")[0];
@@ -44,66 +58,68 @@ function App() {
       setInvestments(investments);
       let keys = Object.getOwnPropertyNames(response.data[0]);
       setKeyNames(keys);
-
-
-      // Set and reduce openPositions array
-
-      let assetList = [];
-      let positionRows = [];
-
-      function createRow(asset, qty, initialPrice, currentPrice) {
-        const totalInvested = qty * initialPrice;
-        const pnl = (currentPrice - initialPrice) * qty;
-        const percent = (pnl / totalInvested) * 100;
-        return {
-          asset,
-          qty,
-          initialPrice,
-          currentPrice,
-          totalInvested,
-          pnl,
-          percent,
-        };
-      }
       
+      
+      
+      
+      // Set and reduce openPositions array
+      let positionRows = [];
+      const uniqueValues = [...new Set(investments.map(investment => investment.asset))];
+      
+      console.log(uniqueValues);
+
+      uniqueValues.forEach((value)=>{
+        positionRows.push(
+          createRow(
+            value,
+            0,
+            0,
+            25
+          )
+          );
+      })
   
+      // loop trough positions array, match with investment table asset, and sum the quantity and the avg price.
+      
       investments.map((investment) => {
-        if (!assetList.includes(investment.asset)) {
-          assetList.push(investment.asset);
-          positionRows.push(
-            createRow(
-              investment.asset,
-              investment.quantity,
-              investment.price,
-              Math.random() * 50
-            )
-            );
-        }
-        // loop trough positions array, match with investment table asset, and sum the quantity and the avg price.
-  
-        positionRows.map((position) => {
-          if (position.asset == investment.asset) {
+        positionRows.map((position)=>{
+          if (position.asset === investment.asset) {
             if(investment.operationType.toUpperCase() === 'BUY'){
               position.qty += investment.quantity;
+              position.totalInvested += investment.quantity*investment.price;
+            
+
+              console.log(`changed`); 
             } 
             if(investment.operationType.toUpperCase() === 'SELL'){
               position.qty -= investment.quantity;
-            } 
-           
-          }
-        });
-        
-      });
-  
-      setOpenPositions(positionRows);
-      console.log('1change');  
-      console.log(openPositions);
+              position.totalInvested -= investment.quantity*investment.price;
+            }
+            
+            position.avgPrice = (position.totalInvested/position.qty);
+            position.profit = (position.currentPrice - position.avgPrice) * position.qty;
+            position.percent = (position.profit / position.totalInvested) * 100;
+             if(position.qty < 0){
+              position.percent = -(position.profit / position.totalInvested) * 100;
+            }
 
+          }
+        })
+        
+      
+      
+      });
+
+      
+      setOpenPositions(positionRows);
+      
+      
       
     });
   }, []);
-
-
+  
+  console.log(openPositions);
+  
 
   return (
     <div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -12,22 +12,11 @@ const useStyles = makeStyles((theme) => ({
   box: {
     position:'relative',
     top: '-15px',
-    minWidth: 450
+    minWidth: 400
   },
 
 
 }));
-
-const montlhyReturns = [10, -15, 12, 20, 11, 10, 2, 5];
-
-let count = 0;
-const acummReturn = [];
-
-montlhyReturns.map((value)=>{
-    count = count + value;
-    acummReturn.push(count);
-    console.log(acummReturn);
-})
 
 const MonthlyReturnChart = ({ theme, darkMode }) => {
   const classes = useStyles();
@@ -39,13 +28,16 @@ const MonthlyReturnChart = ({ theme, darkMode }) => {
       labels: ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug"],
       datasets: [
         {
-          label: "Total Yearly Return - %",
-          data: acummReturn,
-          backgroundColor: "#72efdd",
+          label: "Monthly return - %",
+          data: ["10", "8", "-12", "20", "11", "10", "2", "5"],
+          backgroundColor: "rgba(75,192,192)",
           borderWidth: 2,
-          pointBackgroundColor: '#caf0f8'
+          pointBackgroundColor: 'yellow'
         },
       ],
+
+      
+
     });
   };
 
@@ -56,12 +48,12 @@ const MonthlyReturnChart = ({ theme, darkMode }) => {
   return (
     <div>
       <Paper  className={classes.box}>
-        <h2 className={classes.title}>Accumulated Return - 2020</h2>
-        <Line
+        <h2 className={classes.title}>Portfolio Return - 2020</h2>
+        <Bar
          
           data={chartData}
           height={460}
-          width={450}
+          width={400}
           options={{
             responsive: false,
             maintainAspectRatio: true,
