@@ -44,20 +44,13 @@ export default function OpenPositions({openPositions}) {
 
 
 
-
-
-
-
-
-
-
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="spanning table">
         <TableHead>
           <TableRow>
             <TableCell align="center" colSpan={7}>
-              <h2>Open Positions</h2>
+              <h2>Opened Positions</h2>
             </TableCell>
           </TableRow>
           <TableRow>

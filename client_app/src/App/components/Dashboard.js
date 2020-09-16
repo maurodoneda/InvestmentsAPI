@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme)=>({
 
 }));
 
-export default function Dashboard({ darkMode, keyNames, investments, theme, openPositions }) {
+export default function Dashboard({keyNames, investments, openPositions}) {
   const classes = useStyles();
   const [toggle, setToggle] = useState(false);
 
@@ -45,21 +45,20 @@ export default function Dashboard({ darkMode, keyNames, investments, theme, open
       <Grid container spacing={2}>
       
       <Grid className={classes.gridItem} item xs={3}>
-        <DoughnutChart/>
+        <DoughnutChart openPositions = {openPositions}/>
         </Grid>
 
         <Grid className={classes.evolutionChart} item item xs={3}>
-        <MonthlyReturnChart theme={theme} darkMode ={darkMode}/>
+        <MonthlyReturnChart/>
         </Grid>
 
         <Grid className={classes.evolutionChart} item item xs={4}>
-        <EvolutionChart theme={theme} darkMode ={darkMode}/>
+        <EvolutionChart/>
         </Grid>
 
-        <Grid className={classes.gridItem} item xs={9}>
+        <Grid className={classes.gridItem} item xs={11}>
         {toggle ? (
           <InvestmentTable
-            darkMode={darkMode}
             keyNames={keyNames}
             investments={investments}
           />
@@ -69,8 +68,6 @@ export default function Dashboard({ darkMode, keyNames, investments, theme, open
 
         <Grid className={classes.gridItem} item xs={11}>
         <OpenPositions
-          darkMode={darkMode}
-          keyNames={keyNames}
           investments={investments}
           openPositions = {openPositions}
         />

@@ -26,7 +26,6 @@ const acummReturn = [];
 montlhyReturns.map((value)=>{
     count = count + value;
     acummReturn.push(count);
-    console.log(acummReturn);
 })
 
 const MonthlyReturnChart = ({ theme, darkMode }) => {

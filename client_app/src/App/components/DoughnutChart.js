@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Bar, Doughnut } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -18,30 +18,61 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const DoughnutChart = ({ theme, darkMode }) => {
+
+
+const DoughnutChart = ({ openPositions }) => {
   const classes = useStyles();
+  
+   console.log('openPositionsIn', openPositions);
 
-  const [chartData, setChartData] = useState({});
+   const assets = openPositions.map((position) => position.asset);
+    console.log('assets',assets);
+    
+    const portfolioDivision = [];
+    let total = openPositions.map(({ totalInvested }) => totalInvested).reduce((sum, i) => sum + i, 0);
+    console.log(total);
+   
+  
+    openPositions.map((position)=>{
+      if(position.qty < 0){
+        total -= position.totalInvested; 
+        portfolioDivision.push(Math.ceil(-position.totalInvested/total*100));
+      } else {
+        total += position.totalInvested; 
+        portfolioDivision.push(Math.ceil(position.totalInvested/total*100));
+      }
+  
+    })
+    
+  
+  // const [chartData, setChartData] = useState({});
+  
 
-  const chart = () => {
-    setChartData({
+  //const chart = () => {
+    
+    const alocatedPercentual = portfolioDivision.reduce((sum, i)=> sum+ i,0);
+    console.log(alocatedPercentual);
+    const cash = `${100 - alocatedPercentual} + %)`;
+    portfolioDivision.push(cash);
+    console.log(portfolioDivision);
+    
+    const chartData = ({
       datasets: [{
-        data: [15, 20, 30],
-        backgroundColor: ["#36A2EB","#FFCD56","#FF6384"]
+        data: portfolioDivision,
+        backgroundColor: ['#FF6384','#36A2EB','#FFCD56','#74c69d','#5a189a']
     }],
 
     // These labels appear in the legend and in the tooltips when hovering different arcs
-    labels: [
-        'Blue',
-        'Yellow',
-        'Red'
-    ]
-    });
-  };
+    labels:assets,
+      
+  
 
-  useEffect(() => {
-    chart();
-  }, []);
+    });
+  //};
+
+  // useEffect(() => {
+  //   chart();
+  // }, []);
 
   return (
     <div>

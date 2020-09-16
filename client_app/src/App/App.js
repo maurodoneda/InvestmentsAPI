@@ -87,9 +87,6 @@ function App() {
             if(investment.operationType.toUpperCase() === 'BUY'){
               position.qty += investment.quantity;
               position.totalInvested += investment.quantity*investment.price;
-            
-
-              console.log(`changed`); 
             } 
             if(investment.operationType.toUpperCase() === 'SELL'){
               position.qty -= investment.quantity;
@@ -111,15 +108,14 @@ function App() {
       });
 
       
+      console.log('positionsRow',positionRows);
       setOpenPositions(positionRows);
-      
-      
+    
       
     });
   }, []);
   
-  console.log(openPositions);
-  
+console.log('openPositionsOut',openPositions);
 
   return (
     <div>
