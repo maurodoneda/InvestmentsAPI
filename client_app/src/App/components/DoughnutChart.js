@@ -26,6 +26,7 @@ const DoughnutChart = ({ openPositions }) => {
    console.log('openPositionsIn', openPositions);
 
    const assets = openPositions.map((position) => position.asset);
+   assets.push('Cash');
     console.log('assets',assets);
     
     const portfolioDivision = [];
@@ -52,14 +53,14 @@ const DoughnutChart = ({ openPositions }) => {
     
     const alocatedPercentual = portfolioDivision.reduce((sum, i)=> sum+ i,0);
     console.log(alocatedPercentual);
-    const cash = `${100 - alocatedPercentual} + %)`;
+    const cash = (100 - alocatedPercentual);
     portfolioDivision.push(cash);
     console.log(portfolioDivision);
     
     const chartData = ({
       datasets: [{
         data: portfolioDivision,
-        backgroundColor: ['#FF6384','#36A2EB','#FFCD56','#74c69d','#5a189a']
+        backgroundColor: ['#FF6384','#36A2EB','#FFCD56','#74c69d','#5a189a','#ffff3f']
     }],
 
     // These labels appear in the legend and in the tooltips when hovering different arcs

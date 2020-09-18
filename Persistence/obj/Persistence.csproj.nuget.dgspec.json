@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Persistence\\Persistence.csproj": {}
+    "/Users/maurodoneda/OneDrive/repos/MyInvestments/Persistence/Persistence.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Domain\\Domain.csproj": {
+    "/Users/maurodoneda/OneDrive/repos/MyInvestments/Domain/Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Domain\\Domain.csproj",
+        "projectUniqueName": "/Users/maurodoneda/OneDrive/repos/MyInvestments/Domain/Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Mauro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Domain\\obj\\",
+        "projectPath": "/Users/maurodoneda/OneDrive/repos/MyInvestments/Domain/Domain.csproj",
+        "packagesPath": "/Users/maurodoneda/.nuget/packages/",
+        "outputPath": "/Users/maurodoneda/OneDrive/repos/MyInvestments/Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Mauro\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/maurodoneda/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -52,35 +50,33 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Persistence\\Persistence.csproj": {
+    "/Users/maurodoneda/OneDrive/repos/MyInvestments/Persistence/Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "/Users/maurodoneda/OneDrive/repos/MyInvestments/Persistence/Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Persistence\\Persistence.csproj",
-        "packagesPath": "C:\\Users\\Mauro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Persistence\\obj\\",
+        "projectPath": "/Users/maurodoneda/OneDrive/repos/MyInvestments/Persistence/Persistence.csproj",
+        "packagesPath": "/Users/maurodoneda/.nuget/packages/",
+        "outputPath": "/Users/maurodoneda/OneDrive/repos/MyInvestments/Persistence/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Mauro\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/maurodoneda/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
             "projectReferences": {
-              "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Domain\\Domain.csproj"
+              "/Users/maurodoneda/OneDrive/repos/MyInvestments/Domain/Domain.csproj": {
+                "projectPath": "/Users/maurodoneda/OneDrive/repos/MyInvestments/Domain/Domain.csproj"
               }
             }
           }
@@ -122,7 +118,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
         }
       }
     }
