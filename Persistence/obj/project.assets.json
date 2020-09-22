@@ -1395,11 +1395,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Persistence\\Persistence.csproj",
+      "projectUniqueName": "C:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Persistence\\Persistence.csproj",
       "projectName": "Persistence",
-      "projectPath": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Persistence\\Persistence.csproj",
+      "projectPath": "C:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Persistence\\Persistence.csproj",
       "packagesPath": "C:\\Users\\Mauro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Persistence\\obj\\",
+      "outputPath": "C:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Mauro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1415,8 +1415,8 @@
       "frameworks": {
         "netstandard2.1": {
           "projectReferences": {
-            "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Domain\\Domain.csproj"
+            "C:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Domain\\Domain.csproj"
             }
           }
         }
