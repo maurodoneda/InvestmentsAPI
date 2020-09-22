@@ -1254,31 +1254,33 @@
     ]
   },
   "packageFolders": {
-    "/Users/maurodoneda/.nuget/packages/": {}
+    "C:\\Users\\Mauro\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/maurodoneda/OneDrive/repos/MyInvestments/API/API.csproj",
+      "projectUniqueName": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\api\\API.csproj",
       "projectName": "API",
-      "projectPath": "/Users/maurodoneda/OneDrive/repos/MyInvestments/API/API.csproj",
-      "packagesPath": "/Users/maurodoneda/.nuget/packages/",
-      "outputPath": "/Users/maurodoneda/OneDrive/repos/MyInvestments/API/obj/",
+      "projectPath": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\api\\API.csproj",
+      "packagesPath": "C:\\Users\\Mauro\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/maurodoneda/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Mauro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "/Users/maurodoneda/OneDrive/repos/MyInvestments/Application/Application.csproj": {
-              "projectPath": "/Users/maurodoneda/OneDrive/repos/MyInvestments/Application/Application.csproj"
+            "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\Mauro\\onedrive\\repos\\myinvestments\\Application\\Application.csproj"
             }
           }
         }
@@ -1319,7 +1321,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
