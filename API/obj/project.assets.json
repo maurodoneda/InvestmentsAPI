@@ -1259,11 +1259,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\api\\API.csproj",
+      "projectUniqueName": "C:\\Users\\Mauro\\Documents\\Personal Repos\\myInvestmentsapp\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\api\\API.csproj",
+      "projectPath": "C:\\Users\\Mauro\\Documents\\Personal Repos\\myInvestmentsapp\\API\\API.csproj",
       "packagesPath": "C:\\Users\\Mauro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\api\\obj\\",
+      "outputPath": "C:\\Users\\Mauro\\Documents\\Personal Repos\\myInvestmentsapp\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Mauro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1274,13 +1274,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://pkgs.dev.azure.com/SilverstoneSoftware/61a700dd-2112-496d-8379-9f0c7c0d3e58/_packaging/SSF/nuget/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Application\\Application.csproj"
+            "C:\\Users\\Mauro\\Documents\\Personal Repos\\myInvestmentsapp\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\Mauro\\Documents\\Personal Repos\\myInvestmentsapp\\Application\\Application.csproj"
             }
           }
         }
@@ -1293,6 +1295,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -1321,7 +1324,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

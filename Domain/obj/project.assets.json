@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Mauro\\Documents\\Personal Repos\\myInvestmentsapp\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Domain\\Domain.csproj",
+      "projectPath": "C:\\Users\\Mauro\\Documents\\Personal Repos\\myInvestmentsapp\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\Mauro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mauro\\OneDrive\\repos\\MyInvestments\\Domain\\obj\\",
+      "outputPath": "C:\\Users\\Mauro\\Documents\\Personal Repos\\myInvestmentsapp\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Mauro\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,10 +28,12 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://pkgs.dev.azure.com/SilverstoneSoftware/61a700dd-2112-496d-8379-9f0c7c0d3e58/_packaging/SSF/nuget/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "projectReferences": {}
         }
       },
@@ -43,6 +45,7 @@
     },
     "frameworks": {
       "netstandard2.1": {
+        "targetAlias": "netstandard2.1",
         "imports": [
           "net461",
           "net462",
@@ -58,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
