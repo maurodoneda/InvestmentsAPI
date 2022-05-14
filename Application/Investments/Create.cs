@@ -10,8 +10,7 @@ namespace Application.Investments
     public class Create
     {
         public class Command : IRequest
-        {
- 
+        { 
             public string Asset { get; set; }
             public string AssetClass { get; set; }
             public string OperationType { get; set; }
