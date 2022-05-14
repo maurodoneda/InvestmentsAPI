@@ -21,3 +21,5 @@ C:\Users\Mauro\Documents\Personal Repos\myInvestmentsapp\Persistence\obj\Debug\n
 C:\Users\Mauro\Documents\Personal Repos\myInvestmentsapp\Persistence\obj\Debug\netstandard2.1\Persistence.csproj.CopyComplete
 C:\Users\Mauro\Documents\Personal Repos\myInvestmentsapp\Persistence\obj\Debug\netstandard2.1\Persistence.dll
 C:\Users\Mauro\Documents\Personal Repos\myInvestmentsapp\Persistence\obj\Debug\netstandard2.1\Persistence.pdb
+C:\Users\mauro\Documents\Repos\InvestmentsAPI\Persistence\obj\Debug\netstandard2.1\Persistence.dll
+C:\Users\mauro\Documents\Repos\InvestmentsAPI\Persistence\obj\Debug\netstandard2.1\Persistence.pdb
